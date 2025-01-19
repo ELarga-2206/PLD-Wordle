@@ -1,0 +1,47 @@
+def trivia_quiz():
+    questions = {
+        "This is a Programming language created in 1939, this low level language simplified machine code": {
+            "options": ["a) Assembly", "b) Java", "c) Machine code"],
+            "answer": "a"
+        },
+        "An animal that use distinctive whistles to identify each other": {
+            "options": ["a) Whales", "b) Dolphins", "c) Eagles"],
+            "answer": "b"
+        },
+        "What is the largest planet in our solar system?": {
+            "options": ["a) Mars", "b) Earth", "c) Jupiter"],
+            "answer": "c"
+        },
+        "How long is our circulatory system?": {
+            "options": ["a) 20m", "b) 30.66m", "c) 60,000miles"],
+            "answer": "c"
+        },
+        "A fruit that is known to be a natural source of radiation": {
+            "options": ["a) Pineapple", "b) Banana", "c) Guava"],
+            "answer": "b"
+        }
+    }
+    
+    score = 0
+    
+    print("Welcome to the Trivia Quiz!")
+    print("You will be asked 5 questions. Guess the correct option (a, b, or c).\n")
+    
+    for question, data in questions.items():
+        print(question)
+        for option in data["options"]:
+            print(option)
+        user_answer = input("Your answer: ").strip().lower()
+        
+        if user_answer == data["answer"]:
+            print("Correct answer!\n")
+            score += 1
+        else:
+            correct_option = data["answer"]
+            correct_answer_text = data["options"][ord(correct_option) - ord('a')]
+            print(f"Wrong! The correct answer is {correct_option}) {correct_answer_text}.\n")
+    
+    print(f"Nice Job! Your final score is: {score}/{len(questions)}")
+    
+if __name__ == "__main__":
+    trivia_quiz()
